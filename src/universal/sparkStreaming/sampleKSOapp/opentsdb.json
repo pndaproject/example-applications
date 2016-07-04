@@ -1,0 +1,8 @@
+[
+    {
+        "name": "kso.collectd.cpu"
+    },
+    {
+        "name": "kso.collectd.memory"
+    }
+]

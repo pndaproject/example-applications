@@ -1,0 +1,9 @@
+target/
+project/target
+project/project
+.classpath
+.project
+.cache
+src/universal/sparkStreaming/sampleKSOapp/*.jar
+/bin
+scalastyle-config.xml
