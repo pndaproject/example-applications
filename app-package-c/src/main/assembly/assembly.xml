@@ -1,0 +1,26 @@
+<assembly>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+      <dependencySet>
+        <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+        <outputDirectory>/oozie/example/lib/</outputDirectory>
+        <useProjectArtifact>false</useProjectArtifact>
+        <useTransitiveDependencies>true</useTransitiveDependencies>
+        <scope>runtime</scope>
+        <includes>
+            <include>com.cisco.pnda:*</include>
+        </includes>
+      </dependencySet>
+    </dependencySets>
+</assembly>

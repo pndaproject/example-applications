@@ -1,0 +1,9 @@
+.cache
+target/
+.settings/
+bin
+.classpath
+.project
+.DS_Store
+dependency-reduced-pom.xml
+scalastyle-output.xml
