@@ -52,8 +52,9 @@ def run(brokers):
                       "host_ip": "bb80:0:1:2:a00:bbff:bbee:b123",
                       "rawdata": collectd_alea}, encoder)
         raw_bytes = bytes_writer.getvalue()
+        # reset buffer to start index
+        bytes_writer.seek(0)
         producer.send_messages(TOPIC, extrabytes + raw_bytes)
-
         time.sleep(1)
 
         collectd_value = random.randint(0, 4000000)
@@ -65,6 +66,8 @@ def run(brokers):
                       "host_ip": "bb80:0:1:2:a00:bbff:bbee:b123",
                       "rawdata": collectd_alea}, encoder)
         raw_bytes = bytes_writer.getvalue()
+        # reset buffer to start index
+        bytes_writer.seek(0)            
         producer.send_messages(TOPIC, extrabytes + raw_bytes)
 
         time.sleep(1)
