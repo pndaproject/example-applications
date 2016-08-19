@@ -15,10 +15,7 @@ The [Jupyter Notebook](http://jupyter.org) is a web application that allows you 
 
 Along with PNDA cluster provisioning, Jupyter is deployed with three kernel supports: Python2 kernel, Python3 kernel, and PySpark (Python2) kernel. An example Jupyter notebook is also provided with details instructions on how to rapid prototype using Jupyter PySpark kernel. In particular the example noteobook gives an example usage of platform libraries to load HDFS data and perform interactive data analytics.
 
-By default, Jupyter is installed on `edge` node or `Jupyter` node depending on your cluster's flavour (i.e. small or large). In order to access Jupyter portal go to:
-
-* http://[cluster-name]-cdh-edge:8000 (small flavour)
-* http://[cluster-name]-cdh-jupyter:8000 (large flavour)
+By default, Jupyter is installed on `Jupyter` node. In order to access Jupyter portal go to: http://[cluster-name]-cdh-jupyter:8000
 
 ## Quick start
 
