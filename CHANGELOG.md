@@ -1,6 +1,10 @@
+# Change Log
+All notable changes to this project will be documented in this file.
 
--------
-Version: 0.1.2
-Date: 07/04/2016
+## [0.1.1] 2016-09-07
+### Fixed
+- PNDA-729: Fixed a defect in the sample data source program that not reset a buffer correctly
 
-First release of example streaming app
+## [0.1.0] 2016-07-01
+### First version
+- Example Scala app showing consumption from Kafka and population of OpenTSDB
