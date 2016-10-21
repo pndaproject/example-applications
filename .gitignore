@@ -8,3 +8,12 @@ bin
 dependency-reduced-pom.xml
 *.jar
 scalastyle-output.xml
+target/
+project/target
+project/project
+.classpath
+.project
+.cache
+src/universal/sparkStreaming/sampleKSOapp/*.jar
+/bin
+scalastyle-config.xml
