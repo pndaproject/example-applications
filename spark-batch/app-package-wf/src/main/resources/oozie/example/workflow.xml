@@ -1,0 +1,21 @@
+<workflow-app name="${component_application}-workflow" xmlns="uri:oozie:workflow:0.4">
+    <start to="process"/>
+    <action name="process">
+         <sub-workflow>
+            <app-path>${wf:appPath()}/subflow</app-path>
+            <propagate-configuration/>
+            <configuration>
+                <property>
+                    <name>mainAppPath</name>
+                    <value>${wf:appPath()}</value>
+                </property>
+            </configuration>
+         </sub-workflow>
+         <ok to="end"/>
+         <error to="kill"/>
+    </action>
+    <kill name="kill">
+        <message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>
