@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 - h2o-launcher application to run h2o data science platform
 - literary-word-count-app to run a classic wordcount
-- spark streaming example app that writes to hbase
-
+- Spark streaming example app that consumes from Kafka and writes to HBase
+- Spark batch example app that consumes Gobblin produced Avro datasets from HDFS and produces Parquet for use with Impala
+- Spark streaming example app that consumes from Kafka and writes to OpenTSDB
+- Jupyter notebook example that shows some simple network data manipulation
 
 
