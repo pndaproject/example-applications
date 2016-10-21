@@ -1,0 +1,2 @@
+avro
+kafka-python==0.9.4

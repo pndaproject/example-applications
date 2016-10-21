@@ -1,0 +1,16 @@
+{
+    "spark_num_executors":"1",
+    "spark_driver_memory":"1024m",
+    "spark_executor_memory":"1024m",
+    "spark_executor_cores":"1",
+    "main_class":"com.cisco.pnda.examples.spark.App",
+    "log_level":"INFO",
+    "batch_size_seconds" : "2",
+    "processing_parallelism" : "1",
+    "hbase_shards" : "10",
+    "checkpoint_path":"",
+    "output_table":"example_table",
+    "kudu_enabled":"false",
+    "input_topic": "avro.events",
+    "consume_from_beginning":"false"
+}
