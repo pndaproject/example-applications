@@ -7,3 +7,4 @@ bin
 .DS_Store
 dependency-reduced-pom.xml
 *.jar
+scalastyle-output.xml
