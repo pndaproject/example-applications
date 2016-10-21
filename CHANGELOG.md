@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - h2o-launcher application to run h2o data science platform
 - literary-word-count-app to run a classic wordcount
+- spark streaming example app that writes to hbase
 
 
 
