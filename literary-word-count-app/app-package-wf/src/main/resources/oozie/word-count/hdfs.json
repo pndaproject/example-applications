@@ -1,0 +1,7 @@
+[
+    {
+        "name": "output_path",
+        "path": "/tmp/${component_application}",
+        "delete_on_undeploy": 0
+    }
+]

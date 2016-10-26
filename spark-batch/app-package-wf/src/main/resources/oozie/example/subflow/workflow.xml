@@ -1,0 +1,32 @@
+<workflow-app name="${component_application}-subworkflow" xmlns="uri:oozie:workflow:0.4">
+    <start to="process"/>
+    <action name="process">
+         <spark xmlns="uri:oozie:spark-action:0.1">
+            <job-tracker>${environment_yarn_resource_manager_host}:${environment_yarn_resource_manager_mr_port}</job-tracker>
+            <name-node>${environment_name_node}</name-node>
+            <prepare>
+                <delete path="${hdfspath_output_path}"/>
+            </prepare>
+            <configuration>
+                <property>
+                    <name>mapred.compress.map.output</name>
+                    <value>true</value>
+                </property>
+            </configuration>
+            <master>yarn-cluster</master>
+            <mode>cluster</mode>
+            <name>${component_job_name}</name>
+            <class>com.cisco.pnda.examples.batch.Main</class>
+            <jar>${mainAppPath}/lib/spark-batch-example.jar</jar>
+            <spark-opts>--executor-memory ${component_executors_mem} --num-executors  ${component_executors_num} --executor-cores 1 --driver-memory ${component_driver_mem}</spark-opts>
+            <arg>${component_input_data}</arg>
+            <arg>${hdfspath_output_path}</arg>
+         </spark>
+         <ok to="end"/>
+         <error to="kill"/>
+    </action>
+    <kill name="kill">
+        <message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>

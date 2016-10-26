@@ -1,0 +1,10 @@
+{
+    "executors_num":"2",
+    "executors_mem":"128M",
+    "driver_mem":"128M",
+    "freq_in_mins":"20",
+    "start":"${deployment_start}",
+    "end":"${deployment_end}",
+    "input_data": "/tmp/literature/",
+    "archive_url": "https://s3-eu-west-1.amazonaws.com/pnda-archive/literature.tar.gz"
+}

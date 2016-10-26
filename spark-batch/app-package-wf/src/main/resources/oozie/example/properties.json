@@ -1,0 +1,9 @@
+{
+    "executors_num":"2",
+    "executors_mem":"256M",
+    "driver_mem":"256M",
+    "freq_in_mins":"180",
+    "start":"${deployment_start}",
+    "end":"${deployment_end}",
+    "input_data": "/user/pnda/PNDA_datasets/datasets/source=test-src/year=*"
+}

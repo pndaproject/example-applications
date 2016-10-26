@@ -1,0 +1,12 @@
+<!--
+  Licensed terms here ...
+-->
+<coordinator-app name="${component_application}-coordinator" frequency='${coord:conf("component_freq_in_mins")}' start='${coord:conf("component_start")}' end='${coord:conf("component_end")}' timezone="UTC"
+                 xmlns="uri:oozie:coordinator:0.2">
+    <action>
+        <workflow>
+            <app-path>${environment_name_node}${coord:conf("component_hdfs_root")}</app-path>
+        </workflow>
+    </action>
+</coordinator-app>
+
