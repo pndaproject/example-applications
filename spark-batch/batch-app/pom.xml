@@ -28,10 +28,10 @@ either express or implied.
         <encoding>UTF-8</encoding>
         <scala.tools.version>2.10</scala.tools.version>
         <scala.version>2.10.5</scala.version>
-        <spark.version>1.5.0-cdh5.5.2</spark.version>
-        <avro.version>1.7.6-cdh5.5.2</avro.version>
+        <spark.version>1.6.0-cdh5.9.0</spark.version>
+<avro.version>1.7.6-cdh5.9.0</avro.version>
     </properties>
-	
+
     <repositories>
         <repository>
             <id>cloudera-repo-releases</id>
@@ -78,7 +78,7 @@ either express or implied.
                         <include>**/*Suite.*</include>
                     </includes>
                 </configuration>
-            </plugin>   
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -125,7 +125,7 @@ either express or implied.
 
         </plugins>
     </build>
-  
+
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
