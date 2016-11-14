@@ -1,8 +1,9 @@
 <assembly>
+    <id>dist</id>
     <formats>
         <format>tar.gz</format>
     </formats>
-    <fileSets>        
+    <fileSets>
         <fileSet>
             <directory>src/main/resources</directory>
             <outputDirectory>/</outputDirectory>
