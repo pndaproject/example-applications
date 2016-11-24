@@ -156,7 +156,7 @@ either express or implied.
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka-assembly_2.10</artifactId>
-            <version>${spark.version}</version>
+            <version>1.6.0</version>
             <type>jar</type>
         </dependency>
         <dependency>
