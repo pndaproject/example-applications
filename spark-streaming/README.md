@@ -75,6 +75,6 @@ To run the test script:
     cd data-source/src/main/resources
     python src_tcp_ksh.py
     
-Next, install logstash as per the instructions [here](https://cto-github.cisco.com/CTAO-Team6-Analytics/prod-logstash-codec-avro). Be sure to substitute any fields such as `bootstrap_servers` and `topic_id` in the kafka output config. 
+Next, install logstash as per the instructions [here](https://github.com/pndaproject/prod-logstash-codec-avro/blob/develop/README.md). Be sure to substitute any fields such as `bootstrap_servers` and `topic_id` in the kafka output config. 
 
 
