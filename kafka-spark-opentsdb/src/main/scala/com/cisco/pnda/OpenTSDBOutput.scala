@@ -24,16 +24,21 @@ express or implied.
 
 package com.cisco.pnda;
 
-import scalaj.http._
-import java.nio.charset.Charset
+import java.sql.Timestamp
+import scala.util.control.NonFatal
+import org.apache.log4j.Logger
+import org.apache.spark.streaming.dstream.DStream
+import org.apache.http.client.methods.HttpPost
+import org.apache.http.entity.StringEntity
+import org.apache.http.impl.client.DefaultHttpClient
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonDSL._
-import java.sql.Timestamp
-import org.apache.spark.streaming.dstream.DStream
 
 class OpenTSDBOutput extends Serializable {
-   def putOpentsdb[T](opentsdbIP: String,
+
+
+  def putOpentsdb[T](opentsdbIP: String,
       stream: DStream[String]) = {
     stream.mapPartitions(partition => {
       var count = 0;
@@ -43,22 +48,33 @@ class OpenTSDBOutput extends Serializable {
           val json = parse(rowData.replace("'", "\""))
           val host = compact(render((json \\ "host"))).replace("\"", "")
           val timestampStr = compact(render((json \\ "timestamp"))).replace("\"", "")
-          val value = compact(render((json \\ "value"))).replace("\"", "")
+          val value = (compact(render((json \\ "value"))).replace("\"", "")).toDouble
           val collectd_type = compact(render((json \\ "collectd_type"))).replace("\"", "")
           var metric:String = "kso.collectd"
           metric = metric.concat("." + collectd_type)
           val timestamp = Timestamp.valueOf(timestampStr.replace("T"," ").replace("Z","")).getTime
-          var tags = Map[String, String]("host" -> host)
 
-          var post_json = ("metric" -> metric) ~
-            ("timestamp" -> timestamp) ~
-            ("value" -> value.toDouble) ~
-            ("tags" -> tags.map { case(akey, avalue) =>   (akey -> avalue) } )
+          val body = f"""{
+                    |        "metric": "$metric",
+                    |        "value": "$value",
+                    |        "timestamp": $timestamp,
+                    |        "tags": {"host": "$host"}
+                    |}""".stripMargin
 
-          var result = Http("http://" + opentsdbIP + "/api/put").postData(compact(render(post_json)))
-            .header("Content-Type", "application/json")
-            .header("Charset", "UTF-8")
-            .timeout(connTimeoutMs = 10000, readTimeoutMs = 100000).asString
+          var openTSDBUrl = "http://" + opentsdbIP + "/api/put"
+          try {
+                val httpClient = new DefaultHttpClient()
+                val post = new HttpPost(openTSDBUrl)
+                post.setHeader("Content-type", "application/json")
+                post.setEntity(new StringEntity(body))
+                httpClient.execute(post)
+
+            } catch {
+                case NonFatal(t) => {
+                    
+                }
+            }
+
           count += 1
         });
       Iterator[Integer](count)

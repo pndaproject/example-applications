@@ -28,7 +28,7 @@ either express or implied.
         <encoding>UTF-8</encoding>
         <scala.tools.version>2.10</scala.tools.version>
         <scala.version>2.10.5</scala.version>
-        <spark.version>1.6.0-cdh5.9.0</spark.version>
+        <spark.version>1.6.0</spark.version>
     </properties>
 
     <repositories>

@@ -8,7 +8,6 @@
     "batch_size_seconds" : "2",
     "processing_parallelism" : "1",
     "checkpoint_path":"",
-    "output_table":"example_table",
     "input_topic": "avro.kso.metrics",
     "consume_from_beginning":"false"
 }

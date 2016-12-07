@@ -18,7 +18,7 @@ either express or implied.
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.cisco.pnda</groupId>
    <artifactId>spark-batch-example-app-wf</artifactId>
-   <version>1.0.0</version>
+   <version>1.1.0</version>
    <packaging>pom</packaging>
     <description>This is an example spark batch app that reads from the master dataset</description>
 
@@ -57,7 +57,7 @@ either express or implied.
      <dependency>
         <groupId>com.cisco.pnda</groupId>
         <artifactId>spark-batch-example</artifactId>
-        <version>1.0</version>
+        <version>1.1.0</version>
      </dependency>
    </dependencies>
 </project>
