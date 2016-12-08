@@ -22,7 +22,7 @@ either express or implied.
     <groupId>com.cisco.pnda</groupId>
     <artifactId>spark-batch-example-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <name>spark-batch-example-parent</name>
 
     <modules>
