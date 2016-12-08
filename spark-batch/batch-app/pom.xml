@@ -18,7 +18,7 @@ either express or implied.
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cisco.pnda</groupId>
     <artifactId>spark-batch-example</artifactId>
-    <version>1.0</version>
+    <version>1.1.0</version>
     <name>spark-batch-example</name>
     <description>This is an example batch app</description>
     <properties>
@@ -28,8 +28,8 @@ either express or implied.
         <encoding>UTF-8</encoding>
         <scala.tools.version>2.10</scala.tools.version>
         <scala.version>2.10.5</scala.version>
-        <spark.version>1.6.0-cdh5.9.0</spark.version>
-<avro.version>1.7.6-cdh5.9.0</avro.version>
+        <spark.version>1.6.0</spark.version>
+        <avro.version>1.7.6</avro.version>
     </properties>
 
     <repositories>

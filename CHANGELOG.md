@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- PNDA-2359 Move applications to CDH 5.9 which include spark streaming 1.6
+
+
 ## [0.1.0] 2016-10-21
 
 ### Added

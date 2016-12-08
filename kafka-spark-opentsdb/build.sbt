@@ -1,6 +1,6 @@
 name := "PNDA KSO sample app"
 
-version := "0.0.4"
+version := "0.0.5"
 
 scalaVersion := "2.10.5"
 
@@ -23,7 +23,6 @@ libraryDependencies ++= Seq(
     "org.codehaus.jackson" % "jackson-mapper-asl" % "1.9.13",
     "joda-time" % "joda-time" % "2.7",
     "log4j" % "log4j" % "1.2.14",
-    "org.scalaj" %% "scalaj-http" % "1.1.5",
-    "org.apache.httpcomponents" % "httpcore" % "4.2.5",
-    "org.apache.httpcomponents" % "httpclient" % "4.2.5"
+    "org.apache.httpcomponents" % "httpcore" % "4.2.5" % "provided",
+    "org.apache.httpcomponents" % "httpclient" % "4.2.5" % "provided"
 )
