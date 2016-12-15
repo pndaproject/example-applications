@@ -13,16 +13,16 @@ The sparkStreaming deployment component is being re-used to launch this applicat
 
 ## h2o Distribution
 
-Download a version of h2o that is compatible with the target PNDA verson then extract h2odriver.jar and place it in
+[Download](http://www.h2o.ai/download/) a version of h2o that is compatible with the target PNDA version then extract h2odriver.jar and place it in
 
 ```
 app-package/src/main/resources/sparkStreaming/h2o
 ```
 
-For PNDA 3.1 use
+For PNDA 3.2 use
 
 ```
-http://h2o-release.s3.amazonaws.com/h2o/rel-turing/8/h2o-3.10.0.8-cdh5.5.zip
+http://h2o-release.s3.amazonaws.com/h2o/rel-turing/10/h2o-3.10.0.10-cdh5.8.zip
 ```
 
 ## Build

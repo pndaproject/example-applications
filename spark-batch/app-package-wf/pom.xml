@@ -18,7 +18,7 @@ either express or implied.
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.cisco.pnda</groupId>
    <artifactId>spark-batch-example-app-wf</artifactId>
-   <version>1.0.0</version>
+   <version>1.1.1</version>
    <packaging>pom</packaging>
     <description>This is an example spark batch app that reads from the master dataset</description>
 
@@ -34,10 +34,12 @@ either express or implied.
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.6</version>
             <configuration>
                <descriptors>
                    <descriptor>src/main/assembly/assembly.xml</descriptor>
                </descriptors>
+               <appendAssemblyId>false</appendAssemblyId>
             </configuration>
             <executions>
                   <execution>
@@ -55,7 +57,7 @@ either express or implied.
      <dependency>
         <groupId>com.cisco.pnda</groupId>
         <artifactId>spark-batch-example</artifactId>
-        <version>1.0</version>
+        <version>1.1.0</version>
      </dependency>
    </dependencies>
 </project>

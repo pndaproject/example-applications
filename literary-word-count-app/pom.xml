@@ -22,7 +22,7 @@ either express or implied.
     <groupId>com.cisco.pnda</groupId>
     <artifactId>literary-word-count-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
     <name>spark-batch-example-parent</name>
 
     <modules>

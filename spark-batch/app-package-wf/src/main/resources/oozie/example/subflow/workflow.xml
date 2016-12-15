@@ -18,7 +18,6 @@
             <name>${component_job_name}</name>
             <class>com.cisco.pnda.examples.batch.Main</class>
             <jar>${mainAppPath}/lib/spark-batch-example.jar</jar>
-            <spark-opts>--executor-memory ${component_executors_mem} --num-executors  ${component_executors_num} --executor-cores 1 --driver-memory ${component_driver_mem}</spark-opts>
             <arg>${component_input_data}</arg>
             <arg>${hdfspath_output_path}</arg>
          </spark>

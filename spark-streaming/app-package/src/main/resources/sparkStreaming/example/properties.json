@@ -1,8 +1,4 @@
 {
-    "spark_num_executors":"1",
-    "spark_driver_memory":"1024m",
-    "spark_executor_memory":"1024m",
-    "spark_executor_cores":"1",
     "main_class":"com.cisco.pnda.examples.spark.App",
     "log_level":"INFO",
     "batch_size_seconds" : "2",

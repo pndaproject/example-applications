@@ -1,8 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [0.1.0] 2016-10-21
+## [0.2.0] 2016-12-12
+### Added
+- PNDA-2359 Move applications to CDH 5.9 which include spark streaming 1.6
+- PNDA-2503 Remove explicit memory/vcore settings in apps
 
+### Fixed
+- Change Kafka version to 0.10.0.1
+- Pin assembly plugin to version 2.6
+- Update assembly.xml file to add the id xml tag
+
+## [0.1.0] 2016-10-21
 ### Added
 - h2o-launcher application to run h2o data science platform
 - literary-word-count-app to run a classic wordcount

@@ -18,7 +18,7 @@ either express or implied.
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cisco.pnda</groupId>
     <artifactId>spark-streaming-to-hbase-example</artifactId>
-    <version>2.1.0</version>
+    <version>2.2.0</version>
     <name>spark-streaming-to-hbase-example</name>
     <description>This is an example spark streaming app that reads from kafka and writes to hbase</description>
     <properties>
@@ -28,12 +28,12 @@ either express or implied.
         <encoding>UTF-8</encoding>
         <scala.tools.version>2.10</scala.tools.version>
         <scala.version>2.10.5</scala.version>
-        <spark.version>1.3.0-cdh5.4.1</spark.version>
-        <avro.version>1.7.7</avro.version>
-        <hbase.version>1.0.0-cdh5.4.1</hbase.version>
+        <spark.version>1.6.0</spark.version>
+        <avro.version>1.7.6</avro.version>
+        <hbase.version>1.2.0-cdh5.9.0</hbase.version>
         <kafka.version>0.8.2.2</kafka.version>
     </properties>
-	
+
     <repositories>
         <repository>
             <id>cloudera-repo-releases</id>
@@ -81,9 +81,6 @@ either express or implied.
                     </includes>
                 </configuration>
             </plugin>
-
-            
-            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -98,7 +95,7 @@ either express or implied.
                             <artifactSet>
                                 <includes>
                                     <include>com.cisco.**</include>
-                                    <include>org.apache.spark:spark-streaming-kafka-assembly_2.10</include>
+                                    <include>org.apache.spark:spark-streaming-kafka-assembly_2.11</include>
                                     <include>org.apache.kafka:kafka-clients**</include>
                                     <include>org.kududb:**</include>
                                 </includes>
@@ -107,8 +104,6 @@ either express or implied.
                     </execution>
                 </executions>
             </plugin>
-            
-
 
             <plugin>
               <groupId>org.scalastyle</groupId>
@@ -136,7 +131,7 @@ either express or implied.
 
         </plugins>
     </build>
-  
+
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -161,7 +156,7 @@ either express or implied.
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka-assembly_2.10</artifactId>
-            <version>${spark.version}</version>
+            <version>1.6.0</version>
             <type>jar</type>
         </dependency>
         <dependency>
