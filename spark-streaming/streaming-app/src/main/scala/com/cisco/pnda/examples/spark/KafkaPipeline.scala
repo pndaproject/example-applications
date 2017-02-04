@@ -59,9 +59,9 @@ class KafkaPipeline extends Serializable {
         }: DStream[Map[String, String]];
 
         val props = AppConfig.loadProperties();
-        val checkpointDirectory = props.getProperty("app.checkpoint_path");
-        val batchSizeSeconds = Integer.parseInt(props.getProperty("app.batch_size_seconds"));
-        val useKudu = props.getProperty("kudu.enabled").toBoolean;
+        val checkpointDirectory = props.getProperty("component.checkpoint_path");
+        val batchSizeSeconds = Integer.parseInt(props.getProperty("component.batch_size_seconds"));
+        val useKudu = props.getProperty("component.kudu_enabled").toBoolean;
 
         val sparkConf = new SparkConf();
         Holder.logger.info("Creating new spark context with checkpoint directory: " + checkpointDirectory)
@@ -76,15 +76,15 @@ class KafkaPipeline extends Serializable {
         val writeCounts: DStream[Integer] =
         if (useKudu) {
             new KuduOutput().writeToKudu(
-                props.getProperty("kudu.master"),
-                props.getProperty("hbase.table"),
+                props.getProperty("environment.kudu_master"),
+                props.getProperty("component.output_table"),
                 parsedStream);
         }
         else{
             new HbaseOutput().writeToHbase(
-                props.getProperty("hbase.zookeeper"),
-                Integer.parseInt(props.getProperty("hbase.shards")),
-                props.getProperty("hbase.table"),
+                props.getProperty("environment.zookeeper_quorum"),
+                Integer.parseInt(props.getProperty("component.hbase_shards")),
+                props.getProperty("component.output_table"),
                 "cf",
                 "rowId",
                 parsedStream);

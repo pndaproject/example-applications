@@ -13,6 +13,6 @@ project/project
 .classpath
 .project
 .cache
-src/universal/sparkStreaming/sampleKSOapp/*.jar
 /bin
 scalastyle-config.xml
+dependency-reduced-pom.xml

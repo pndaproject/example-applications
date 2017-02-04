@@ -39,9 +39,8 @@ object App {
         val props = AppConfig.loadProperties();
         val loggerUrl = props.getProperty("environment.metric_logger_url")
         val appName = props.getProperty("component.application")
-        val checkpointDirectory = props.getProperty("app.checkpoint_path");
-        val batchSizeSeconds = Integer.parseInt(props.getProperty("app.batch_size_seconds"));
-
+        val checkpointDirectory = props.getProperty("component.checkpoint_path");
+        val batchSizeSeconds = Integer.parseInt(props.getProperty("component.batch_size_seconds"));
         val pipeline = new KafkaPipeline()
         // Create the streaming context, or load a saved one from disk
         val ssc = if (checkpointDirectory.length() > 0) StreamingContext.getOrCreate(checkpointDirectory, pipeline.create) else pipeline.create();
