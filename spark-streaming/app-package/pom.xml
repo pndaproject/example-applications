@@ -18,7 +18,7 @@ either express or implied.
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.cisco.pnda</groupId>
    <artifactId>spark-streaming-to-hbase-example-app</artifactId>
-   <version>2.2.1</version>
+   <version>2.3.0</version>
    <packaging>pom</packaging>
     <description>This is an example spark streaming app that reads from kafka and writes to hbase</description>
 
@@ -57,7 +57,7 @@ either express or implied.
      <dependency>
         <groupId>com.cisco.pnda</groupId>
         <artifactId>spark-streaming-to-hbase-example</artifactId>
-        <version>2.2.0</version>
+        <version>2.3.0</version>
      </dependency>
    </dependencies>
 </project>
