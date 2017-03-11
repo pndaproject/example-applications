@@ -1,0 +1,6 @@
+{
+    "freq_in_mins":"180",
+    "start":"${deployment_start}",
+    "end":"${deployment_end}",
+    "input_data": "/year=*"
+}
