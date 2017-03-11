@@ -31,7 +31,7 @@ This command should be run at the root of the repository and will build the appl
 
 ## Spark Job
 
-This versions of the application runs the same logic as the spark-batch example but written in Python.
+This version of the application runs the same logic as the spark-batch example but written in Python.
 
 This is a very basic job that loads the avro row based data from the master data set and writes it out as column based parquet.
 
