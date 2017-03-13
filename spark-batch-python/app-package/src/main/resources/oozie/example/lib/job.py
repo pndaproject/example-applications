@@ -32,17 +32,29 @@ print 'Application starting'
 input_data_path = sys.argv[1]
 output_data_path = sys.argv[2]
 
+# Create the main Spark context and an SQL context
 sc = SparkContext()
 sqlContext = SQLContext(sc)
+
+# Load the input data, at the path given by the first arg
 handler = SimpleDataHandler(sc, "test-src", input_data_path)
 rdd = handler.rdd
-
 print rdd.count()
 
+# Reduce the number of partitions to 10, otherwise if there
+# are a lot of input files there will be too many partitions in the output data.
+# This should be exposed in properties.json as a configurable property.
 partitions = 10
 payloads = rdd.map(lambda x: x['rawdata']).coalesce(partitions)
 rows = payloads.map(lambda x: x.split(';'))
+
+# Apply a schema to the rawdata field, the fields are:
+# a, b = fixed
+# c = incrementing number
+# gen_ts = timestamp at which the event was generated
 df = sqlContext.createDataFrame(rows, ['a', 'b', 'c', 'gen_ts'])
+
+# Save the dataframe as a parquet file, now column based operations on these fields will be efficient in impala
 df.saveAsParquetFile(output_data_path)
 
 # Example impala schema:

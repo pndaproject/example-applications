@@ -1,0 +1,11 @@
+{
+    "main_py": "job.py",
+    "py_files": "dataplatform-raw.avsc",    
+    "log_level":"INFO",
+    "batch_size_seconds": "2",
+    "processing_parallelism": "1",
+    "checkpoint_path":"",
+    "input_topic": "avro.events",
+    "consume_from_beginning": "false",
+    "spark_submit_args": "--conf spark.yarn.executor.memoryOverhead=500"
+}

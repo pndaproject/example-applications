@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
  - PNDA-2700: Update spark streaming example to work on redhat.
 
+### Added
+- PNDA-2726: Added example spark-batch and spark-streaming jobs in python
+
 ## [0.2.0] 2016-12-12
 ### Added
 - PNDA-2359 Move applications to CDH 5.9 which include spark streaming 1.6
