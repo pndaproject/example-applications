@@ -37,6 +37,19 @@ This command should be run at the root of the repository and will build the appl
 
 ## Deploying the package and creating an application
 
+Prior to deploying the application on a PNDA cluster, some common libraries are needed.
+
+Run these commands on the saltmaster instance:
+```sh
+sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'yum install -y python-pip'
+sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'pip2 install avro==1.8.1 requests'
+```
+
+Run these commands on the cdh-edge instance:
+```
+sudo sed -i -e 's|SPARK_PYTHON_PATH=.*$|SPARK_PYTHON_PATH="/usr/lib/python2.7/site-packages/"|g' /etc/spark/conf.cloudera.spark_on_yarn/spark-env.sh
+```
+
 The PNDA console can be used to deploy the application package to a cluster and then to create an application instance. The console is available on port 80 on the edge node.
 
 When creating an application in the console, ensure that the `input_topic` property is set to a real Kafka topic.
