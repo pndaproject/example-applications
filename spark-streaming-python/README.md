@@ -40,13 +40,21 @@ This command should be run at the root of the repository and will build the appl
 Prior to deploying the application on a PNDA cluster, some common libraries are needed.
 
 Run these commands on the saltmaster instance:
+
 ```sh
+# Ubuntu
 sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'yum install -y python-pip'
+# Redhat
+sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'apt-get install -y python-pip'
+
 sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'pip2 install avro==1.8.1 requests'
 ```
 
 Run these commands on the cdh-edge instance:
 ```
+# Ubuntu
+sudo sed -i -e 's|SPARK_PYTHON_PATH=.*$|SPARK_PYTHON_PATH="/usr/local/lib/python2.7/dist-packages/"|g' /etc/spark/conf.cloudera.spark_on_yarn/spark-env.sh
+# Redhat
 sudo sed -i -e 's|SPARK_PYTHON_PATH=.*$|SPARK_PYTHON_PATH="/usr/lib/python2.7/site-packages/"|g' /etc/spark/conf.cloudera.spark_on_yarn/spark-env.sh
 ```
 
