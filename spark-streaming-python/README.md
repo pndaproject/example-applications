@@ -51,7 +51,8 @@ sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'pip2 install avro==1.8.1 reques
 ```
 
 Run these commands on the cdh-edge instance:
-```
+
+```sh
 # Ubuntu
 sudo sed -i -e 's|SPARK_PYTHON_PATH=.*$|SPARK_PYTHON_PATH="/usr/local/lib/python2.7/dist-packages/"|g' /etc/spark/conf.cloudera.spark_on_yarn/spark-env.sh
 # Redhat
