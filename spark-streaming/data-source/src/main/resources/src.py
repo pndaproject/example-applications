@@ -20,11 +20,13 @@ Unless required by applicable law or agreed to separately in writing, software d
 import io
 import sys
 import time
+import logging
 import avro.schema
 import avro.io
 from kafka.client import KafkaClient
 from kafka.producer import SimpleProducer
 
+logging.basicConfig(format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:%(levelname)s:%(process)d:%(message)s', level=logging.DEBUG)
 kafka = KafkaClient(sys.argv[1])
 producer = SimpleProducer(kafka)
 
