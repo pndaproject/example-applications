@@ -43,9 +43,9 @@ Run these commands on the saltmaster instance:
 
 ```sh
 # Ubuntu
-sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'yum install -y python-pip'
-# Redhat
 sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'apt-get install -y python-pip'
+# Redhat
+sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'yum install -y python-pip'
 
 sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'pip2 install avro==1.8.1 requests'
 ```
