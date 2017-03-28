@@ -1,6 +1,6 @@
 name := "PNDA KSO sample app"
 
-version := "0.0.6"
+version := "1.0.0"
 
 scalaVersion := "2.10.5"
 

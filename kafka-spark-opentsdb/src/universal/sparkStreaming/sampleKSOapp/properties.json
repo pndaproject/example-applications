@@ -1,9 +1,11 @@
 {
     "main_class":"com.cisco.pnda.PndaConsumer",
+    "main_jar": "sampleKSOapp.jar",    
     "log_level":"INFO",
     "batch_size_seconds" : "2",
     "processing_parallelism" : "1",
     "checkpoint_path":"",
     "input_topic": "avro.kso.metrics",
-    "consume_from_beginning":"false"
+    "consume_from_beginning":"false",
+    "spark_submit_args": ""    
 }
