@@ -17,8 +17,8 @@ packageZipTarball in Universal := {
 libraryDependencies ++= Seq(
     "org.apache.spark" %% "spark-core" % "1.6.0" % "provided",
     "org.apache.spark" %% "spark-streaming" % "1.6.0" % "provided",
-    "org.apache.spark" %% "spark-streaming-kafka" % "1.6.0" % "provided",
-    "org.apache.kafka" %% "kafka" % "0.10.0.1",
+    "org.apache.spark" %% "spark-streaming-kafka" % "1.6.0",
+    "org.apache.kafka" %% "kafka" % "0.8.2.2",
     "org.apache.avro" % "avro" % "1.7.7",
     "org.codehaus.jackson" % "jackson-mapper-asl" % "1.9.13",
     "joda-time" % "joda-time" % "2.7",

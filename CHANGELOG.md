@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - PNDA-2726: Added example spark-batch and spark-streaming jobs in python
+- PNDA-2445: Support for Hortonworks HDP hadoop distro.
 
 ## [0.2.0] 2016-12-12
 ### Added

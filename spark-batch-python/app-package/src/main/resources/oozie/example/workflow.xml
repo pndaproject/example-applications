@@ -18,7 +18,7 @@
             <name>${component_job_name}</name>
             <class>com.cisco.pnda.examples.batch.Main</class>
             <jar>${environment_name_node}${component_hdfs_root}/lib/job.py</jar>
-            <spark-opts>--jars /opt/cloudera/parcels/CDH/lib/spark/lib/spark-examples.jar --py-files /opt/pnda/platformlibs-develop-py2.7.egg</spark-opts>
+            <spark-opts>--jars hdfs:///user/deployment/platform/spark-examples.jar --py-files /opt/pnda/platformlibs-py2.7.egg</spark-opts>
             <arg>${component_input_data}</arg>
             <arg>${hdfspath_output_path}</arg>
          </spark>

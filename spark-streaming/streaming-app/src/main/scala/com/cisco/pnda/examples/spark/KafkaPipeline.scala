@@ -86,6 +86,7 @@ class KafkaPipeline extends Serializable {
                 Integer.parseInt(props.getProperty("component.hbase_shards")),
                 props.getProperty("component.output_table"),
                 "cf",
+                props.getProperty("environment.hadoop_distro"),
                 "rowId",
                 parsedStream);
         }

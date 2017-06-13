@@ -40,13 +40,24 @@ This command should be run at the root of the repository and will build the appl
 
 ## Deploying the package and creating an application
 
+On Hortonworks HDP, obtain and place the following jars in HDFS:
+
+ - `kafka-clients-0.8.2.2.jar`
+ - `spark-streaming-kafka_2.10-1.6.0.jar`
+ - `kafka_2.10-0.8.2.2.jar`
+ - `metrics-core-2.2.0.jar`
+
+Then add them to the class path when creating the application by including the following in the `spark_submit_args` property:
+
+`--jars hdfs:///user/deployment/platform/kafka-clients-0.8.2.2.jar,hdfs:///user/deployment/platform/spark-streaming-kafka_2.10-1.6.0.jar,hdfs:///user/deployment/platform/kafka_2.10-0.8.2.2.jar,hdfs:///user/deployment/platform/metrics-core-2.2.0.jar`
+
 The PNDA console can be used to deploy the application package to a cluster and then to create an application instance. The console is available on port 80 on the edge node.
 
 When creating an application in the console, ensure that the `input_topic` property is set to a real Kafka topic.
 
 ```
 "input_topic": "avro.events",
-``` 
+```
 
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
 
