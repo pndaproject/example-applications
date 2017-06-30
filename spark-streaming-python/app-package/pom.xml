@@ -18,7 +18,7 @@ either express or implied.
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.cisco.pnda</groupId>
    <artifactId>spark-streaming-example-app-python</artifactId>
-   <version>1.0.0</version>
+   <version>1.1.0</version>
    <packaging>pom</packaging>
    <description>This is an example spark streaming app that reads from kafka and writes to hbase</description>
 
@@ -31,6 +31,26 @@ either express or implied.
 
    <build>
       <plugins>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+            <execution>
+                <goals>
+                    <goal>exec</goal>
+                </goals>
+                <phase>compile</phase>
+            </execution>
+            </executions>
+            <configuration>
+                <executable>sh</executable>
+                <workingDirectory>.</workingDirectory>
+                <arguments>
+                    <argument>package-py-deps.sh</argument>
+                </arguments>
+            </configuration>
+         </plugin>
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>

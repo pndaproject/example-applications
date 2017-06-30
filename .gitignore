@@ -16,3 +16,6 @@ project/project
 /bin
 scalastyle-config.xml
 dependency-reduced-pom.xml
+pydeps-stage/
+*.egg
+
