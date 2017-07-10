@@ -1,6 +1,6 @@
 {
     "main_py": "job.py",
-    "py_files": "dataplatform-raw.avsc",    
+    "py_files": "dataplatform-raw.avsc,avro-1.8.1-py2.7.egg",
     "log_level":"INFO",
     "batch_size_seconds": "2",
     "processing_parallelism": "1",

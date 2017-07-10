@@ -20,6 +20,8 @@ The application expects avro encoded events with 3 generic integer fields and a 
 
 ## Build
 
+Please note this currently only builds on OSX or Linux until package-py-deps.sh can be modified to run in a cross-platform way.
+ 
 To build the example applications use:
 
 ````
@@ -36,28 +38,6 @@ This command should be run at the root of the repository and will build the appl
 - `job.py`: implements the stream processing in python.
 
 ## Deploying the package and creating an application
-
-Prior to deploying the application on a PNDA cluster, some common libraries are needed.
-
-Run these commands on the saltmaster instance:
-
-```sh
-# Ubuntu
-sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'apt-get install -y python-pip'
-# Redhat
-sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'yum install -y python-pip'
-
-sudo salt -C "G@cloudera:role:DATANODE" cmd.run 'pip2 install avro==1.8.1 requests'
-```
-
-Run these commands on the cdh-edge instance:
-
-```sh
-# Ubuntu
-sudo sed -i -e 's|SPARK_PYTHON_PATH=.*$|SPARK_PYTHON_PATH="/usr/local/lib/python2.7/dist-packages/"|g' /etc/spark/conf.cloudera.spark_on_yarn/spark-env.sh
-# Redhat
-sudo sed -i -e 's|SPARK_PYTHON_PATH=.*$|SPARK_PYTHON_PATH="/usr/lib/python2.7/site-packages/"|g' /etc/spark/conf.cloudera.spark_on_yarn/spark-env.sh
-```
 
 The PNDA console can be used to deploy the application package to a cluster and then to create an application instance. The console is available on port 80 on the edge node.
 
