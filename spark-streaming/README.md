@@ -20,6 +20,8 @@ The application expects avro encoded events with 3 generic integer fields and a 
 
 ## Build
 
+Edit the `streaming-app/pom.xml` file with the correct dependencies, specifically hbase should be set to the version matching the target cluster. Refer to the Cloudera or Hortonworks version matrix to work out what version this should be.
+
 To build the example applications use:
 
 ````
@@ -43,7 +45,7 @@ When creating an application in the console, ensure that the `input_topic` prope
 
 ```
 "input_topic": "avro.events",
-``` 
+```
 
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
 

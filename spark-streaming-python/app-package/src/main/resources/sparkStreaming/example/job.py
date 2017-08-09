@@ -23,7 +23,6 @@
 #
 import time
 import io
-import json
 from datetime import datetime
 from operator import add
 
@@ -109,7 +108,7 @@ def create_pipeline():
                 "timestamp": %s
             }],
             "timestamp": %s}""" % (app_name, app_name, metric_value, time_now, time_now)
-        requests.post(logger_url, json=json.loads(body))
+        requests.post(logger_url, data=body, headers={"content-type": "application/json"})
         return 1
     messages.map(lambda x: 1).reduce(add).map(report_metric).reduce(add).pprint()
     return ssc
@@ -125,5 +124,3 @@ log_out(LOG_LEVEL_INFO, 'Starting spark streaming execution')
 log_out(LOG_LEVEL_INFO, 'Logger url: ' + logger_url)
 context.start()
 context.awaitTermination()
-
-
