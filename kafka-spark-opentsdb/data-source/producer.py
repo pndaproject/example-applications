@@ -78,7 +78,7 @@ if __name__ == '__main__':
     broker_list = None
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hb", ["brokerlist="])
+        opts, args = getopt.getopt(sys.argv[1:], "hb:", ["brokerlist="])
     except getopt.GetoptError:
         print 'producer.py [-b localhost:9092] '
         sys.exit(2)
