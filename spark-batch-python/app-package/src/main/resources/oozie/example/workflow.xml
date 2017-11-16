@@ -20,7 +20,7 @@
             <jar>${environment_name_node}${component_hdfs_root}/lib/job.py</jar>
             <spark-opts>--jars hdfs:///user/deployment/platform/spark-examples.jar --py-files /opt/pnda/platformlibs-py2.7.egg</spark-opts>
             <arg>${component_input_data}</arg>
-            <arg>${hdfspath_output_path}</arg>
+            <arg>/user/${wf:user()}/${hdfspath_output_path}</arg>
          </spark>
          <ok to="end"/>
          <error to="kill"/>
