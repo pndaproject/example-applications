@@ -1,7 +1,7 @@
 [
     {
         "name": "output_path",
-        "path": "/parquet/${component_application}",
+        "path": "parquet/${component_application}",
         "delete_on_undeploy": 0
     }
 ]
