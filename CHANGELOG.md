@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Changed
+- PNDA-3401: Change the spark-batch(-python) to output in the user's directory.
+
+### Added
+- PNDA-2445: Support for Hortonworks HDP hadoop distro.
+
+## [0.3.0] 2017-05-23
+### Changed
  - PNDA-2700: Update spark streaming example to work on redhat.
 
 ### Fixed
@@ -10,7 +17,6 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - PNDA-2726: Added example spark-batch and spark-streaming jobs in python
-- PNDA-2445: Support for Hortonworks HDP hadoop distro.
 
 ## [0.2.0] 2016-12-12
 ### Added
