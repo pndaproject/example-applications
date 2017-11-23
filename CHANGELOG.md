@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - PNDA-2445: Support for Hortonworks HDP hadoop distro.
 ### Fixed
-- PNDA-3419: update KSO data source to work with new version of Kafka
+- PNDA-3419: update KSO data source to work with Kafka 0.11.0.0
 - PNDA-3499: Cleanup CHANGELOG with missing release info.
 
 ## [0.3.0] 2017-05-23
