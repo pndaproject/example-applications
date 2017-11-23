@@ -18,8 +18,7 @@ from time import gmtime, strftime
 import avro.schema
 import avro.io
 
-from kafka.client import KafkaClient
-from kafka.producer import SimpleProducer
+from kafka import KafkaProducer
 
 KAFKA_BROKERLIST = "localhost:9092"
 
@@ -36,8 +35,7 @@ def run(brokers):
     Run the test
     '''
     schema = avro.schema.parse(open(SCHEMA_PATH).read())
-    kafka = KafkaClient(brokers)
-    producer = SimpleProducer(kafka)
+    producer = KafkaProducer(bootstrap_servers=[brokers])
     writer = avro.io.DatumWriter(schema)
     bytes_writer = io.BytesIO()
     encoder = avro.io.BinaryEncoder(bytes_writer)
@@ -54,7 +52,7 @@ def run(brokers):
         raw_bytes = bytes_writer.getvalue()
         # reset buffer to start index
         bytes_writer.seek(0)
-        producer.send_messages(TOPIC, extrabytes + raw_bytes)
+        producer.send(TOPIC, extrabytes + raw_bytes)
         time.sleep(1)
 
         collectd_value = random.randint(0, 4000000)
@@ -68,7 +66,7 @@ def run(brokers):
         raw_bytes = bytes_writer.getvalue()
         # reset buffer to start index
         bytes_writer.seek(0)            
-        producer.send_messages(TOPIC, extrabytes + raw_bytes)
+        producer.send(TOPIC, extrabytes + raw_bytes)
 
         time.sleep(1)
 
