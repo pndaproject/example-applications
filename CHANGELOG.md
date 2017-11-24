@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.4.0] 2017-11-24
 ### Changed
 - PNDA-3401: Change the spark-batch(-python) to output in the user's directory.
 ### Added
