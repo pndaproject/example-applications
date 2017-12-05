@@ -19,7 +19,7 @@
             <class>com.cisco.pnda.examples.batch.Main</class>
             <jar>${mainAppPath}/lib/spark-batch-example.jar</jar>
             <arg>${component_input_data}</arg>
-            <arg>${hdfspath_output_path}</arg>
+            <arg>/user/${wf:user()}/${hdfspath_output_path}</arg>
          </spark>
          <ok to="end"/>
          <error to="kill"/>
