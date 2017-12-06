@@ -1,6 +1,27 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+## [0.4.0] 2017-11-24
+### Changed
+- PNDA-3401: Change the spark-batch(-python) to output in the user's directory.
+### Added
+- PNDA-2445: Support for Hortonworks HDP hadoop distro.
+### Fixed
+- PNDA-3419: update KSO data source to work with Kafka 0.11.0.0
+- PNDA-3499: Cleanup CHANGELOG with missing release info.
+
+## [0.3.0] 2017-05-23
+### Changed
+ - PNDA-2700: Update spark streaming example to work on redhat.
+
+### Fixed
+ - PNDA-3051: Fix timestamp generation for opentsdb datapoints
+
+### Added
+- PNDA-2726: Added example spark-batch and spark-streaming jobs in python
+
 ## [0.2.0] 2016-12-12
 ### Added
 - PNDA-2359 Move applications to CDH 5.9 which include spark streaming 1.6

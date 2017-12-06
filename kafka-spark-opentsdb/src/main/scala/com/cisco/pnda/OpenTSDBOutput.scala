@@ -24,7 +24,7 @@ express or implied.
 
 package com.cisco.pnda;
 
-import java.sql.Timestamp
+import org.joda.time.DateTime
 import scala.util.control.NonFatal
 import org.apache.log4j.Logger
 import org.apache.spark.streaming.dstream.DStream
@@ -52,8 +52,7 @@ class OpenTSDBOutput extends Serializable {
           val collectd_type = compact(render((json \\ "collectd_type"))).replace("\"", "")
           var metric:String = "kso.collectd"
           metric = metric.concat("." + collectd_type)
-          val timestamp = Timestamp.valueOf(timestampStr.replace("T"," ").replace("Z","")).getTime
-
+          val timestamp = new DateTime(timestampStr).getMillis
           val body = f"""{
                     |        "metric": "$metric",
                     |        "value": "$value",

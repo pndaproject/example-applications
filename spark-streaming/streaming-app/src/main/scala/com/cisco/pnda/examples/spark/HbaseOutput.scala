@@ -36,6 +36,7 @@ class HbaseOutput extends Serializable {
       shards: Int,
       tableName: String,
       columnFamily: String,
+      hadoopDistro: String,
       rowKey: String,
       stream: DStream[Map[String,String]]) = {
     stream.mapPartitions(partition => {
@@ -43,6 +44,14 @@ class HbaseOutput extends Serializable {
       // obtain connections from a static pool
       val hbaseConfiguration = new HBaseConfiguration();
       hbaseConfiguration.set("hbase.zookeeper.quorum", zk);
+      var hbasePath = "";
+      if (hadoopDistro == "HDP") {
+          hbasePath = "/hbase-unsecure";
+      }
+      else {
+          hbasePath = "/hbase";
+      }
+      hbaseConfiguration.set("zookeeper.znode.parent", hbasePath)
       val admin = new HBaseAdmin(hbaseConfiguration);
       val table = new HTable(admin.getConfiguration(), tableName);
       val puts = new ArrayList[Put]();

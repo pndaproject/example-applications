@@ -20,6 +20,8 @@ The application expects avro encoded events with 3 generic integer fields and a 
 
 ## Build
 
+Edit the `streaming-app/pom.xml` file with the correct dependencies, specifically hbase should be set to the version matching the target cluster. Refer to the Cloudera or Hortonworks version matrix to work out what version this should be.
+
 To build the example applications use:
 
 ````
@@ -34,8 +36,6 @@ This command should be run at the root of the repository and will build the appl
 - `log4j.properties`: defines the log level and behaviour for the application.
 - `hbase.json`: contains commands to create an HBase table and Impala metadata.
 - `properties.json`: contains default properties that may be overriden at application creation time.
-- `upstart.conf`: runs the spark streaming job as a supervised upstart service.
-- `yarn-kill.py`: called by upstart.conf to kill the yarn job when stopping the upstart service.
 
 ## Deploying the package and creating an application
 
@@ -45,7 +45,7 @@ When creating an application in the console, ensure that the `input_topic` prope
 
 ```
 "input_topic": "avro.events",
-``` 
+```
 
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
 

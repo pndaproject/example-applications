@@ -34,14 +34,14 @@ import org.apache.spark.streaming.StreamingContext
 class KafkaInput extends Serializable {
     def readFromKafka (ssc: StreamingContext) = {
         val props = AppConfig.loadProperties();
-        val topicsSet = props.getProperty("kafka.topic").split(",").toSet;
-        val kafkaParams = collection.mutable.Map[String, String]("metadata.broker.list" -> props.getProperty("kafka.brokers"))
-        if (props.getProperty("kafka.consume_from_beginning").toBoolean)
+        val topicsSet = props.getProperty("component.input_topic").split(",").toSet;
+        val kafkaParams = collection.mutable.Map[String, String]("metadata.broker.list" -> props.getProperty("environment.kafka_brokers"))
+        if (props.getProperty("component.consume_from_beginning").toBoolean)
         {
             kafkaParams.put("auto.offset.reset", "smallest");
         }
         val messages = KafkaUtils.createDirectStream[String, Array[Byte], StringDecoder, DefaultDecoder](
-        ssc, kafkaParams.toMap, topicsSet).repartition(Integer.parseInt(props.getProperty("app.processing_parallelism")));
+        ssc, kafkaParams.toMap, topicsSet).repartition(Integer.parseInt(props.getProperty("component.processing_parallelism")));
 
         // Decode avro container format
         val avroSchemaString = StaticHelpers.loadResourceFile("dataplatform-raw.avsc");

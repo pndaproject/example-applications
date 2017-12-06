@@ -1,12 +1,14 @@
 {
-    "main_class":"com.cisco.pnda.examples.spark.App",
+    "main_class": "com.cisco.pnda.examples.spark.App",
+    "main_jar": "spark-streaming-to-hbase-example.jar",
     "log_level":"INFO",
-    "batch_size_seconds" : "2",
-    "processing_parallelism" : "1",
-    "hbase_shards" : "10",
+    "batch_size_seconds": "2",
+    "processing_parallelism": "1",
+    "hbase_shards": "10",
     "checkpoint_path":"",
-    "output_table":"example_table",
-    "kudu_enabled":"false",
+    "output_table": "example_table",
+    "kudu_enabled": "false",
     "input_topic": "avro.events",
-    "consume_from_beginning":"false"
+    "consume_from_beginning": "false",
+    "spark_submit_args": ""
 }

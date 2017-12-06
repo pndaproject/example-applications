@@ -4,8 +4,12 @@
 
 This project runs the h2o data science platform as an application on PNDA.
 
-*** Note ***
+*** Notes ***
+
 The sparkStreaming deployment component is being re-used to launch this application as a PoC.
+
+This only works for PNDA running on Ubuntu (not Redhat).
+
 
 ## Requirements
 

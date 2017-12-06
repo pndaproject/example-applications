@@ -1,4 +1,4 @@
-<workflow-app name="${component_application}-subworkflow" xmlns="uri:oozie:workflow:0.4">
+<workflow-app name="${component_application}-workflow" xmlns="uri:oozie:workflow:0.4">
     <start to="process"/>
     <action name="process">
          <spark xmlns="uri:oozie:spark-action:0.1">
@@ -17,7 +17,8 @@
             <mode>cluster</mode>
             <name>${component_job_name}</name>
             <class>com.cisco.pnda.examples.batch.Main</class>
-            <jar>${mainAppPath}/lib/spark-batch-example.jar</jar>
+            <jar>${environment_name_node}${component_hdfs_root}/lib/job.py</jar>
+            <spark-opts>--jars hdfs:///user/deployment/platform/spark-examples.jar --py-files /opt/pnda/platformlibs-py2.7.egg</spark-opts>
             <arg>${component_input_data}</arg>
             <arg>/user/${wf:user()}/${hdfspath_output_path}</arg>
          </spark>
