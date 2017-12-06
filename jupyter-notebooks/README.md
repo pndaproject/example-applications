@@ -13,7 +13,7 @@ The [Jupyter Notebook](http://jupyter.org) is a web application that allows you 
 
 ## Connecting
 
-Along with PNDA cluster provisioning, Jupyter is deployed with three kernel supports: Python2 kernel, Python3 kernel, and PySpark (Python2) kernel. An example Jupyter notebook is also provided with details instructions on how to rapid prototype using Jupyter PySpark kernel. In particular the example noteobook gives an example usage of platform libraries to load HDFS data and perform interactive data analytics.
+Along with PNDA cluster provisioning, Jupyter is deployed with four kernel supports: Python2 kernel, Python3 kernel, PySpark (Python2) kernel and Spark (Scala) kernel. An example Jupyter notebook is also provided with details instructions on how to rapid prototype using Jupyter PySpark kernel. In particular the example noteobook gives an example usage of platform libraries to load HDFS data and perform interactive data analytics. A sample Jupyter notebook is also provided for executing scala code using Spark kernel that allow to connect with remote Spark cluster and execute code.
 
 By default, Jupyter is installed on `Jupyter` node. In order to access Jupyter portal go to: http://[cluster-name]-cdh-jupyter:8000
 
