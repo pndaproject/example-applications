@@ -49,7 +49,7 @@ On Hortonworks HDP, obtain and place the following jars in HDFS:
 
 Then add them to the class path when creating the application by including the following in the `spark_submit_args` property:
 
-`--jars hdfs:///user/deployment/platform/kafka-clients-0.8.2.2.jar,hdfs:///user/deployment/platform/spark-streaming-kafka_2.10-1.6.0.jar,hdfs:///user/deployment/platform/kafka_2.10-0.8.2.2.jar,hdfs:///user/deployment/platform/metrics-core-2.2.0.jar`
+`--jars hdfs:///pnda/deployment/platform/kafka-clients-0.8.2.2.jar,hdfs:///pnda/deployment/platform/spark-streaming-kafka_2.10-1.6.0.jar,hdfs:///pnda/deployment/platform/kafka_2.10-0.8.2.2.jar,hdfs:///pnda/deployment/platform/metrics-core-2.2.0.jar`
 
 The PNDA console can be used to deploy the application package to a cluster and then to create an application instance. The console is available on port 80 on the edge node.
 
