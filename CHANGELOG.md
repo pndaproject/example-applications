@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Changed
+
+### Added
+
+### Fixed
+- PNDA-3402: fix build issue on KSO app
 
 ## [0.4.0] 2017-11-24
 ### Changed
