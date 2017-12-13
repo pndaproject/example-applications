@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - PNDA-3555: Use /pnda/deployment as expected HDFS library location.
 
+### Added
+
+### Fixed
+- PNDA-3402: fix build issue on KSO app
+
 ## [0.4.0] 2017-11-24
 ### Changed
 - PNDA-3401: Change the spark-batch(-python) to output in the user's directory.
