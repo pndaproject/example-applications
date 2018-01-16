@@ -6,6 +6,7 @@
   * [Log into Jupyter Portal](#log-into-jupyter-portal)
   * [Upload example notebook](#upload-example-notebook)
   * [Open example notebook](#open-example-notebook)
+  * [Spark Magic Usage](#spark-magic-usage)
 
 ## Overview
 
@@ -40,3 +41,14 @@ Clone example-jupyter-notebooks repository. Click the upload button and select t
 Click the link `Example Platform-library PySpark Notebook.ipynb`.
 
    ![Jupyter example notebook](images/jupyter-example-notebook.png)
+
+### Spark Magic Usage
+
+The Spark kernel provides some predefined magics, which are special commands that you can call with %% i.e %%MAGICNAME.  Load 'sparkmagic' in order to interact with Spark from jupyter notebook.
+
+   ![Sparkmagic load magics](images/jupyter-sparkmagic-magics.png)
+
+The %manage_spark line magic will let you manage Livy endpoints and Spark sessions. You can provide Livy endpoint using DNS name/IP address of Jupyter node on which Livy server is running. By default Livy server is configured on port 8998. Add new endpoint using livy url and port number eg : http://[jupyter-node-ip/jupyter-node-dns]:8998. Authentication is not enabled for livy hence select 'None' as Auth type. You can create, delete and manage sessions for an endpoint from it.
+
+   ![Sparkmagic manage sessions](images/jupyter-sparkmagic-endpoint.png)
+
