@@ -18,4 +18,4 @@ scalastyle-config.xml
 dependency-reduced-pom.xml
 pydeps-stage/
 *.egg
-
+.vscode
