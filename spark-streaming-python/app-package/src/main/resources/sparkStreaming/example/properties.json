@@ -7,5 +7,5 @@
     "checkpoint_path":"",
     "input_topic": "avro.events",
     "consume_from_beginning": "false",
-    "spark_submit_args": "--conf spark.yarn.executor.memoryOverhead=500"
+    "spark_submit_args": "--conf spark.yarn.executor.memoryOverhead=500 --jars hdfs:///pnda/deployment/app_packages/kafka-clients-0.8.2.2.jar,hdfs:///pnda/deployment/app_packages/spark-streaming-kafka_2.10-1.6.0.jar,hdfs:///pnda/deployment/app_packages/kafka_2.10-0.8.2.2.jar,hdfs:///pnda/deployment/app_packages/metrics-core-2.2.0.jar"
 }
