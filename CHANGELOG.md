@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Changed
 - PNDA-3555: Use /pnda/deployment as expected HDFS library location.
+- PNDA-3549: Remove jar and egg dependencies used by spark-streaming-python application that run on PNDA that are now included by default.
 
 ### Added
 
