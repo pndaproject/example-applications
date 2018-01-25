@@ -1,0 +1,11 @@
+{
+    "main_py": "job.py",
+    "log_level":"INFO",
+    "checkpoint_path":"/tmp/spark2-example-chk",
+    "query_window":"4 minutes",
+    "query_slide":"2 minutes",
+    "input_data_host": "pnda-hadoop-edge",
+    "input_data_port": "10072",
+    "spark_version": "2",
+    "spark_submit_args": ""
+}
