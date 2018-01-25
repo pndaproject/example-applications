@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-3549: Remove jar and egg dependencies used by spark-streaming-python application that run on PNDA that are now included by default.
 
 ### Added
+- PNDA-3479: Added an example application that uses the Spark2 Structured Streaming API
 
 ### Fixed
 - PNDA-3402: fix build issue on KSO app
