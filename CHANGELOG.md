@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - PNDA-3555: Use /pnda/deployment as expected HDFS library location.
 - PNDA-3549: Remove jar and egg dependencies used by spark-streaming-python application that run on PNDA that are now included by default.
+- PNDA-1899: Changed notes to reflect addition of Scala to supported languages in Jupyter (experimental)
 
 ### Added
 - PNDA-3479: Added an example application that uses the Spark2 Structured Streaming API
