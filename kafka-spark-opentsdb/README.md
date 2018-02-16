@@ -17,13 +17,8 @@ The chapter "Packages & Applications" in the PNDA guide contains a lot more deta
 
 Please note that the current implementation does not support being compiled against Cloudera libraries.
 
-## Build standalone jar
-
+## Build and creating the package
 This project is built with sbt. See the [install instructions](http://www.scala-sbt.org/release/docs/Setup.html).
-
-	sbt assembly
-
-## Creating the package
 
 The previous step generate the jar file. To create a package, you will need a set of files, which are available in the src/universal folder:
 
@@ -34,9 +29,9 @@ The previous step generate the jar file. To create a package, you will need a se
 - `upstart.conf`: runs the spark streaming job as a supervised upstart service.
 - `yarn-kill.py`: called by upstart.conf to kill the yarn job when stopping the upstart service.
 
-We use the sbt native packager for creating the package. For more information: [SBT Native packager](http://www.scala-sbt.org/sbt-native-packager/). To generate the tarball, run:
+We use the sbt native packager for creating the package. For more information: [SBT Native packager](http://www.scala-sbt.org/sbt-native-packager/). To build and generate the tarball, run:
 
-	 sbt universal:packageZipTarball
+	 sbt packageApp
 
 Your package will be available into the target/universal folder.
 
