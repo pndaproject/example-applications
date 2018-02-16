@@ -10,7 +10,7 @@ The application is a tar file containing binaries and configuration files requir
 
 This example application reads events from a network socket and performs basic counting analytics. To run the data source run the command `nc -lk 10072` on the pnda edge node and then type some input into it.
 
-The results are reported via the PNDA metrics logger, for display in the console and grafana dashboards.
+The results are printed into the console output of the spark driver process. To view these, navigate to the log file via the Yarn Resource Manager UI or use the PNDA log server.
 
 Since this application uses the Spark2 API, the special property `spark_version=2` is set in the properties.json file.
 
@@ -42,6 +42,8 @@ The PNDA console can be used to deploy the application package to a cluster and 
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
 
 Make sure to set `input_data_host` to the host that is running the `nc -lk 10072` command that is used to provide data to the application.
+
+Once the application is running, type some commands into the nc input and view the results in the spark driver log file. To view this file navigate to the log via the Yarn Resource Manager UI or use the PNDA log server.
 
 
 
