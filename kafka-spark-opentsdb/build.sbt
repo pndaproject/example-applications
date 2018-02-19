@@ -26,3 +26,9 @@ libraryDependencies ++= Seq(
     "org.apache.httpcomponents" % "httpcore" % "4.2.5" % "provided",
     "org.apache.httpcomponents" % "httpclient" % "4.2.5" % "provided"
 )
+
+commands += Command.command("packageApp") { state =>
+      "assembly" ::
+      "universal:packageZipTarball" ::
+      state
+  }
