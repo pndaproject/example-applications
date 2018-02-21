@@ -1,14 +1,20 @@
 <workflow-app name="${component_application}-subworkflow" xmlns="uri:oozie:workflow:0.4">
     <start to="download"/>
     <action name="download">
-             <shell xmlns="uri:oozie:shell-action:0.2">            
-                 <job-tracker>${environment_yarn_resource_manager_host}:${environment_yarn_resource_manager_mr_port}</job-tracker>
-                 <name-node>${environment_name_node}</name-node>                   
-                 <exec>download.sh</exec>
-                 <argument>${component_archive_url}</argument>
-                 <argument>${component_input_data}</argument>
-                 <file>${mainAppPath}/lib/download.sh#download.sh</file>
-             </shell>
+         <shell xmlns="uri:oozie:shell-action:0.2">
+            <job-tracker>${environment_yarn_resource_manager_host}:${environment_yarn_resource_manager_mr_port}</job-tracker>
+            <name-node>${environment_name_node}</name-node>
+            <configuration>
+                <property>
+                    <name>oozie.launcher.mapred.job.queue.name</name>
+                    <value>${wf:conf("mapreduce.job.queuename")}</value>
+                </property>
+            </configuration>
+            <exec>download.sh</exec>
+            <argument>${component_archive_url}</argument>
+            <argument>${component_input_data}</argument>
+            <file>${mainAppPath}/lib/download.sh#download.sh</file>
+         </shell>
          <ok to="process"/>
          <error to="kill"/>
     </action>
@@ -23,13 +29,18 @@
                 <property>
                     <name>mapred.compress.map.output</name>
                     <value>true</value>
-                </property>   
+                </property>
+                <property>
+                    <name>oozie.launcher.mapred.job.queue.name</name>
+                    <value>${wf:conf("mapreduce.job.queuename")}</value>
+                </property>
             </configuration>
             <master>yarn-cluster</master>
             <mode>cluster</mode>
             <name>${component_job_name}</name>
             <class>com.cisco.pnda.examples.wordcount.Main</class>
             <jar>${mainAppPath}/lib/word-count-app.jar</jar>
+            <spark-opts> --queue ${wf:conf("mapreduce.job.queuename")}</spark-opts>
             <arg>${component_input_data}</arg>
             <arg>${hdfspath_output_path}</arg>
          </spark>
