@@ -26,8 +26,6 @@ The previous step generate the jar file. To create a package, you will need a se
 - `log4j.properties`: defines the log level and behaviour for the application.
 - `opentsdb.json`: contains metrics to be created in OpenTSDB.
 - `properties.json`: contains default properties that may be overridden at application creation time.
-- `upstart.conf`: runs the spark streaming job as a supervised upstart service.
-- `yarn-kill.py`: called by upstart.conf to kill the yarn job when stopping the upstart service.
 
 We use the sbt native packager for creating the package. For more information: [SBT Native packager](http://www.scala-sbt.org/sbt-native-packager/). To build and generate the tarball, run:
 
