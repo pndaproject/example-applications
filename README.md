@@ -24,6 +24,9 @@ Example of consuming data ingested by Gobblin on a batch basis and producing Par
 
 [Application that runs the H2O data science platform as an application on PNDA](h2o-launcher).
 
+## Flink Streaming
+- [Count Words](flink-streaming-word-count) (scala) Count the words from Socket.
+
 ## Compound Packages
 
 [An example of a package containing multiple application component](literary-word-count-app) types, in this case a Spark app and related Jupyter notebook.
