@@ -2,16 +2,16 @@
 
 Impala can be driven using the Hive JDBC driver - the upstream of this can be found at `https://github.com/apache/hive/tree/master/jdbc/src/java/org/apache/hive/jdbc`.
 
-At the time of writing Cloudera distribute an Apache 2.0 licensed version of this driver which is installable using apt-get on Ubuntu Trusty.
+At the time of writing Cloudera distribute an Apache 2.0 licensed version of this driver which is installable using yum on RHEL.
 
-`sudo wget 'https://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/cdh/cloudera.list' \
-    -O /etc/apt/sources.list.d/cloudera.list
+`sudo wget 'https://archive.cloudera.com/cdh5/redhat/7/x86_64/cdh/cloudera-cdh5.repo' \
+    -O /etc/yum.repos.d/cloudera
 `
 
-`sudo apt-get update
+`sudo yum clean all
 `
 
-`sudo apt-get install hive-jdbc
+`sudo yum install hive-jdbc
 `
 
 ## Usage
