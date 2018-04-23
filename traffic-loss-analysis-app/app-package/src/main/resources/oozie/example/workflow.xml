@@ -1,0 +1,37 @@
+<workflow-app name="${component_application}-workflow" xmlns="uri:oozie:workflow:0.4">
+    <start to="process"/>
+    <action name="process">
+         <spark xmlns="uri:oozie:spark-action:0.1">
+            <job-tracker>${environment_yarn_resource_manager_host}:${environment_yarn_resource_manager_mr_port}</job-tracker>
+            <name-node>${environment_name_node}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.compress.map.output</name>
+                    <value>true</value>
+                </property>
+            </configuration>
+            <master>yarn-cluster</master>
+            <mode>cluster</mode>
+            <name>${component_job_name}</name>
+            <class>com.cisco.pnda.examples.batch.Main</class>
+            <jar>${environment_name_node}${component_hdfs_root}/lib/job.py</jar>
+            <spark-opts> --conf spark.executorEnv.PYSPARK_PYTHON=/opt/pnda/anaconda/bin/python --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=/opt/pnda/anaconda/bin/python </spark-opts>
+            <arg>${component_input_data_path}</arg>
+            <arg>${component_input_data_src}</arg>
+            <arg>${component_tla_order}</arg>
+            <arg>${component_tla_sample_rate}</arg>
+            <arg>${component_tla_cutoff}</arg>
+            <arg>${component_tla_window_size}</arg>
+            <arg>${component_tla_threshold}</arg>
+            <arg>${component_opentsdb_url}</arg>
+            <arg>${component_log_level}</arg>
+            <arg>${component_spark_version}</arg>
+         </spark>
+         <ok to="end"/>
+         <error to="kill"/>
+    </action>
+    <kill name="kill">
+        <message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>
