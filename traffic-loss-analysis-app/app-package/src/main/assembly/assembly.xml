@@ -15,7 +15,7 @@
     <dependencySets>
       <dependencySet>
         <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
-        <outputDirectory>/flink/example/</outputDirectory>
+        <outputDirectory>/oozie/example/lib/</outputDirectory>
         <useProjectArtifact>false</useProjectArtifact>
         <useTransitiveDependencies>true</useTransitiveDependencies>
         <scope>runtime</scope>
@@ -24,4 +24,5 @@
         </includes>
       </dependencySet>
     </dependencySets>
+
 </assembly>
