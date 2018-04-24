@@ -1,0 +1,8 @@
+{
+    "main_class": "com.cisco.pnda.examples.flink.WordCountStreamApp",
+    "main_jar": "flink-socket-streaming-example.jar",
+    "log_level":"INFO",
+    "flink_config_args": "-yn 1 -yjm 1024 -ytm 1024",
+    "application_args": "--port 9100 --windowtime 5",
+    "flink_job_type": "streaming"
+}
