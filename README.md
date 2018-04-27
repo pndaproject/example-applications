@@ -27,6 +27,7 @@ Example of consuming data ingested by Gobblin on a batch basis and producing Par
 ## Flink Streaming
 - [Count Words](flink-streaming-word-count) (scala) Count the words from Socket.
 - [Flink Windows](flink-streaming-host-network-data-usage) (java) host-network-data-usage illustrating Flink windows, triggers and event processing.
+- [Count Hashtags](flink-batch-java-hashtagcount-metrics) (java) specific word count from input file illustrating metrics, counters and accumulators.
 
 ## Compound Packages
 

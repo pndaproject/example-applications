@@ -1,0 +1,8 @@
+{
+    "main_class": "com.cisco.pnda.examples.flink.WordCountBatchApp",
+    "main_jar": "flink-batch-hashtagcount-metrics-java-example.jar",
+    "log_level":"INFO",
+    "flink_config_args": "-yn 1 -yjm 1024 -ytm 1024",
+    "application_args": "--word #test",
+    "flink_job_type": "batch"
+}
