@@ -1,0 +1,12 @@
+{
+	"input_data_path":"telemetry_data",
+	"input_data_src" : "tla",
+    "tla_order" : 3,
+    "tla_sample_rate": 30,
+    "tla_cutoff": 2,
+    "tla_window_size": 20,
+    "tla_threshold": 2,
+    "opentsdb_url": "http://192.168.10.3:4242/api/put",
+    "log_level": "DEBUG",
+    "spark_version": "2"
+}
