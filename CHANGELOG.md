@@ -2,8 +2,6 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-### Changed
-- PNDA-4525: Deprecate Ubuntu 14.04
 
 ## [0.5.0] 2018-02-10
 ### Changed

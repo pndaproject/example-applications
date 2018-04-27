@@ -1,5 +1,5 @@
 <!--
-Copyright (c) 2018 Cisco and/or its affiliates.
+Copyright (c) 2017 Cisco and/or its affiliates.
 
 This software is licensed to you under the terms of the Apache License, Version 2.0 (the "License").
 You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -17,13 +17,13 @@ either express or implied.
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.cisco.pnda</groupId>
-   <artifactId>flink-socket-streaming-example-app</artifactId>
+   <artifactId>tla-app-python</artifactId>
    <version>1.0.0</version>
    <packaging>pom</packaging>
-    <description>This is an example flink streaming app that reads from  port and count the words</description>
+    <description>This is an example spark batch app that reads from the master dataset</description>
 
    <properties>
-      <jdkLevel>1.8</jdkLevel>
+      <jdkLevel>1.6</jdkLevel>
       <requiredMavenVersion>[2.1,)</requiredMavenVersion>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
@@ -53,11 +53,4 @@ either express or implied.
          </plugin>
       </plugins>
    </build>
-   <dependencies>
-     <dependency>
-        <groupId>com.cisco.pnda</groupId>
-        <artifactId>flink-socket-streaming-example</artifactId>
-        <version>1.0.0</version>
-     </dependency>
-   </dependencies>
 </project>

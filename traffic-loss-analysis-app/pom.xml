@@ -1,5 +1,5 @@
 <!--
-Copyright (c) 2018 Cisco and/or its affiliates.
+Copyright (c) 2017 Cisco and/or its affiliates.
 
 This software is licensed to you under the terms of the Apache License, Version 2.0 (the "License").
 You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -20,13 +20,12 @@ either express or implied.
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cisco.pnda</groupId>
-    <artifactId>flink-socket-streaming-example-parent</artifactId>
+    <artifactId>tla-app-python-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
-    <name>flink-socket-streaming-example-parent</name>
+    <name>tla-app-python-parent</name>
 
     <modules>
-        <module>streaming-app</module>
         <module>app-package</module>
     </modules>
 </project>
