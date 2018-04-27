@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - PNDA-4525: Deprecate Ubuntu 14.04
 
+### Added
+- PNDA-4470: Adds a Traffic-Loss Analysis Spark2 python app to the example apps.
+
 ## [0.5.0] 2018-02-10
 ### Changed
 - PNDA-3555: Use /pnda/deployment as expected HDFS library location.
