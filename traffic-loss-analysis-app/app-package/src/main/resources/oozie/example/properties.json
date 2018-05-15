@@ -1,6 +1,6 @@
 {
-	"input_data_path":"telemetry_data",
-	"input_data_src" : "tla",
+	"input_data_path":"year=*",
+	"input_data_src" : "tla-src",
     "tla_order" : 3,
     "tla_sample_rate": 30,
     "tla_cutoff": 2,

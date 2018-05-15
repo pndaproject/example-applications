@@ -3,8 +3,7 @@
 "name": "event",
 "fields": [
      {"name": "timestamp", "type": "long"},
-     {"name": "src",       "type": "string"},
-     {"name": "host_ip",   "type": "string"},
+     {"name": "source",  "type": "string"},
      {"name": "rawdata",   "type": "bytes"}
 ]
 }

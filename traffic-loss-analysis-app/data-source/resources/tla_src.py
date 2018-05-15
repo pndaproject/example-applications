@@ -40,7 +40,7 @@ producer = SimpleProducer(kafka)
 schema_path = "./dataplatform-raw.avsc"
 
 # Kafka topic
-topic = "avro.tla.metrics"
+topic = "avro.pnda.tla"
 schema = avro.schema.parse(open(schema_path).read())
 
 # Network topology
@@ -78,7 +78,7 @@ while seq < int(sys.argv[2]):
             writer = avro.io.DatumWriter(schema)
             bytes_writer = io.BytesIO()
             encoder = avro.io.BinaryEncoder(bytes_writer)
-            writer.write({"src": "tla-src", "timestamp": ts, "host_ip": k, "rawdata": json.dumps(data)}, encoder)
+            writer.write({"source": "tla-src", "timestamp": ts, "rawdata": json.dumps(data)}, encoder)
             raw_bytes = bytes_writer.getvalue()
             producer.send_messages(topic, raw_bytes)
 

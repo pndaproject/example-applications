@@ -8,7 +8,7 @@
     "checkpoint_path":"",
     "output_table": "example_table",
     "kudu_enabled": "false",
-    "input_topic": "avro.events",
+    "input_topic": "avro.events.samples",
     "consume_from_beginning": "false",
     "spark_submit_args": ""
 }
