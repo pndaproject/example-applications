@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Changed
 - PNDA-4525: Deprecate Ubuntu 14.04
+- PNDA-4503: update to use new platformlibs and new ingest mechanics
 
 ### Added
 - PNDA-4470: Adds a Traffic-Loss Analysis Spark2 python app to the example apps.
