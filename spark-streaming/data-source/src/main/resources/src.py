@@ -18,20 +18,25 @@ Unless required by applicable law or agreed to separately in writing, software d
 """
 
 import io
+import os
 import sys
 import time
 import logging
 import avro.schema
 import avro.io
-from kafka.client import KafkaClient
-from kafka.producer import SimpleProducer
+from kafka import KafkaProducer
+
+if (len(sys.argv[1:]) != 2):
+        print 'Usage: src.py kafka_broker num_to_send'
+        sys.exit(1)
 
 logging.basicConfig(format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:%(levelname)s:%(process)d:%(message)s', level=logging.DEBUG)
-kafka = KafkaClient(sys.argv[1])
-producer = SimpleProducer(kafka)
+kafka = map(str, sys.argv[1].split(','))
+producer = KafkaProducer(bootstrap_servers=kafka)
 
-# Path to user.avsc avro schema
-schema_path="/opt/cisco/ksh-producer/dataplatform-raw.avsc"
+# Avro schema
+here = os.path.abspath(os.path.dirname(__file__))
+schema_path = here + "/dataplatform-raw.avsc"
 
 # Kafka topic
 topic = "avro.events"
@@ -47,5 +52,7 @@ while seq < int(sys.argv[2]):
         encoder = avro.io.BinaryEncoder(bytes_writer)      
         writer.write({"src": "test-src", "timestamp": current_milli_time(), "host_ip": "0.0.0.0", "rawdata": "a=1;b=2;c=%s;gen_ts=%s"%(seq,current_milli_time())}, encoder)
         raw_bytes = bytes_writer.getvalue()
-        producer.send_messages(topic, raw_bytes)
+        producer.send(topic, raw_bytes)
         seq += 1
+
+producer.close()
