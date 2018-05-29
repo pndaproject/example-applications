@@ -45,7 +45,7 @@ The PNDA console can be used to deploy the application package to a cluster and 
 When creating an application in the console, ensure that the `input_topic` property is set to a real Kafka topic.
 
 ```
-"input_topic": "avro.events",
+"input_topic": "avro.events.samples",
 ```
 
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.

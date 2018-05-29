@@ -34,7 +34,7 @@ producer = SimpleProducer(kafka)
 schema_path="/opt/cisco/ksh-producer/dataplatform-raw.avsc"
 
 # Kafka topic
-topic = "avro.events"
+topic = "avro.events.samples"
 schema = avro.schema.parse(open(schema_path).read())
 
 current_milli_time = lambda: int(round(time.time() * 1000))

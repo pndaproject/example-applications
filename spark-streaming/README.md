@@ -44,7 +44,7 @@ The PNDA console can be used to deploy the application package to a cluster and 
 When creating an application in the console, ensure that the `input_topic` property is set to a real Kafka topic.
 
 ```
-"input_topic": "avro.events",
+"input_topic": "avro.events.samples",
 ```
 
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
@@ -70,11 +70,32 @@ Only the SQL field that corresponds to the HBase rowkey can be considered *index
 
 If you want to produce test data and see how the ingest pipeline works, there is a script in `data-source/src/main/resources/src_tcp_ksh.py` which produces random events and sends it over TCP port `20518`.
 
-To run the test script:
+Create topic configuration
+
+Add the following topic config to gobblin MR configuration, which can be found at edge node at `/opt/pnda/gobblin/configs/mr.pull`
+```
+# ==== Configure topics ====
+...
+{ \
+    "dataset": "avro.events.\*", \
+    "pnda.converter.delegate.class": "gobblin.pnda.PNDAAvroConverter", \
+    "pnda.family.id": "avro.events", \
+    "pnda.avro.source.field": "src", \
+    "pnda.avro.timestamp.field": "timestamp", \
+    "pnda.avro.schema": '{"namespace": "pnda.entity","type": "record","name": "event","fields": [ {"name": "timestamp", "type": "long"}, {"name": "src", "type": "string"}, {"name": "host_ip", "type": "string"}, {"name": "rawdata", "type": "bytes"}]}' \
+  } \
+]
+```
+
+To generate one-time test data, make sure you run this script below on PNDA nodes, preferrable on edge node:
+
+    cd data-source/src/main
+    python src.py <kafka broker ip> <number of events>
+
+Alternatively you can create a long-running data streaming process by running the test script, and use logstash as per the instructions [here](https://github.com/pndaproject/prod-logstash-codec-avro/blob/develop/README.md). Be sure to substitute any fields such as `bootstrap_servers` and `topic_id` in the kafka output config. 
 
     cd data-source/src/main/resources
     python src_tcp_ksh.py
     
-Next, install logstash as per the instructions [here](https://github.com/pndaproject/prod-logstash-codec-avro/blob/develop/README.md). Be sure to substitute any fields such as `bootstrap_servers` and `topic_id` in the kafka output config. 
 
 
