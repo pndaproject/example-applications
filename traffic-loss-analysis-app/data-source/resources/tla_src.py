@@ -27,14 +27,12 @@ import time
 import logging
 import avro.schema
 import avro.io
-from kafka.client import KafkaClient
-from kafka.producer import SimpleProducer
+from kafka import KafkaProducer
 
 logging.basicConfig(
 	   format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:%(levelname)s:%(process)d:%(message)s',
 	   level=logging.DEBUG)
-kafka = KafkaClient(sys.argv[1])
-producer = SimpleProducer(kafka)
+producer = KafkaProducer(bootstrap_servers=[sys.argv[1]])
 
 # Path to user.avsc avro schema
 schema_path = "./dataplatform-raw.avsc"
@@ -80,10 +78,8 @@ while seq < int(sys.argv[2]):
             encoder = avro.io.BinaryEncoder(bytes_writer)
             writer.write({"source": "tla-src", "timestamp": ts, "rawdata": json.dumps(data)}, encoder)
             raw_bytes = bytes_writer.getvalue()
-            producer.send_messages(topic, raw_bytes)
+            producer.send(topic, raw_bytes)
 
     seq += 1
     print seq
-    time.sleep(30)
-	
-
+    time.sleep(1)
