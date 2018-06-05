@@ -45,13 +45,29 @@ This version of the application requires Spark2 and Oozie Spark2 scheduler.
 - `workflow.xml`: Oozie workflow definition that run the spark2 job. See Oozie documenation for more information.
 - `lib/job.py`: Python code that implements the data processing job.
 
+## Run sample data source
+
+If you want to produce test data, there is a script in `data-source/src/main/resources/tla_src.py`. The scipt simulates a simple network topology with two routers in a core network. Network traffics traverse from edge router 1 to edge router 2 via the core network. Therefore there are only one-way traffics from core router 1 to core router 2. The script samples telemetry data every seconds and collect accumulative packets sent/received on the single interface of each router. It also injects packets loss rate at 4% on core router 2. 
+
+![simple-network-topology](images/network-topology.png)
+
+Before runing the sample data source, make sure the topic **avro.pnda.tla** is created on your kafka cluster.
+To run the data source script:
+
+    cd data-source/src/main/resources
+    python tla_src.py <kafka-broker-ip:port> <total-sampling-times>
+
+e.g. to generate ten hour sample datasets run:
+    
+    python tla_src.py 127.0.0.1:9092 1200
+
+If running the script from edge node, creating a python virtual environment is recommended with those libraries specified in the requirement.txt file installed. 
+
 ## Deploying the package and creating an application
 
 The PNDA console can be used to deploy the application package to a cluster and then to create an application instance. The console is available on port 80 on the edge node.
 
 When creating an application in the console, ensure that the `input_data` property is set to a folder that contains data. If any data has been published to kafka, this will be found in HDFS under `/user/pnda/PNDA_datasets/datasets/tla-src` (after 30 minutes has passed and gobblin has run to import it).
-
-**[NOTE: before starting the application, make sure to add `tsd.core.auto_create_metrics = true` to opentsdb configurations, which can be found at `/etc/opentsdb/opentsdb.conf` on the node opentsdb service runs.]**
 
 ```
 input_data: /year=*
@@ -60,26 +76,9 @@ input_data: /year=*
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
 
 
-## Run sample data source
-
-If you want to produce test data, there is a script in `data-source/src/main/resources/tla_src.py`. The scipt simulates a simple network topology with two routers in a core network. Network traffics traverse from edge router 1 to edge router 2 via the core network. Therefore there are only one-way traffics from core router 1 to core router 2. The script samples telemetry data very 30 seconds and collect accumulative packets sent/received on the single interface of each router. It also injects packets loss rate at 4% on core router 2. 
-
-![simple-network-topology](images/network-topology.png)
-
-To run the data source script:
-
-    cd data-source/src/main/resources
-    python tla_src.py <kafka-broker-ip> <total-sampling-times>
-
-e.g. to generate ten hour sample datasets run:
-    
-    python tla_src.py 127.0.0.1 1200
-
-If running the script from edge node, creating a python virtual environment is recommended with those libraries specified in the requirement.txt file installed. 
-
 ## view the output in Grafana
 
-Navigate to Grafana from your PNDA console main page (http://<your-ip\>:3000). Createa a new dashboard using `PDNA OpenTSDB` data source. All the reportable metrics starts with `pkt.` prefix. Add metrics to the newly created dashboard as the example below. 
+Navigate to Grafana from your PNDA console main page (http://<your-ip\>:3000). Createa a new dashboard using `PNDA OpenTSDB` data source. All the reportable metrics starts with `tla.` prefix. Add metrics to the newly created dashboard as the example below. 
 
 ![example-grafana-view](images/example-dashboard.png)
 
