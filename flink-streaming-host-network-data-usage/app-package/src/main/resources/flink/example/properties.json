@@ -1,0 +1,8 @@
+{
+    "main_class": "com.cisco.pnda.examples.HostNetworkDataUsage",
+    "main_jar": "flink-streaming-host-network-data-usage-java-example.jar",
+    "log_level":"INFO",
+    "flink_config_args": "-yn 1 -yjm 1024 -ytm 1024",
+    "application_args": "--trigger-bytes 1024 --eviction-window 10 --topic avro.pnda.netmeter",
+    "flink_job_type": "batch"
+}
