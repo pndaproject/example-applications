@@ -1,0 +1,9 @@
+{"namespace": "pnda.entity",
+"type": "record",
+"name": "event",
+"fields": [
+	{"name": "timestamp", "type": "long"},
+	{"name": "source", "type": "string"},
+	{"name": "rawdata", "type": "bytes"}
+]
+}
