@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-4525: Deprecate Ubuntu 14.04
 - PNDA-4503: update to use new platformlibs and new ingest mechanics
 - PNDA-4654: Update kafka-python package version to 1.3.5
+- PNDA-4468: Add references to the guide for Gobblin topic config
 
 ### Added
 - PNDA-4470: Adds a Traffic-Loss Analysis Spark2 python app to the example apps.
