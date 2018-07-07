@@ -72,7 +72,8 @@ If you want to produce test data and see how the ingest pipeline works, there is
 
 Create topic configuration
 
-Add the following topic config to gobblin MR configuration, which can be found at edge node at `/opt/pnda/gobblin/configs/mr.pull`
+Add the following topic config to gobblin MR configuration (Refer to the guide for more details on [Gobblin topic configuration](https://github.com/pndaproject/pnda-guide/blob/develop/streamingest/topic-preparation.md#gobblin-topic-configuration)).
+ 
 ```
 # ==== Configure topics ====
 ...
