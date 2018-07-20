@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - PNDA-4470: Adds a Traffic-Loss Analysis Spark2 python app to the example apps.
 - PNDA-4502: Adds example flinks applications
+- PNDA-4545: Add example Java Flink batch application
 
 ## [0.5.0] 2018-02-10
 ### Changed
