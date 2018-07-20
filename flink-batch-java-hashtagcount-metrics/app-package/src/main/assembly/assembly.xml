@@ -1,0 +1,27 @@
+<assembly>
+    <id>dist</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+      <dependencySet>
+        <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+        <outputDirectory>/flink/example/</outputDirectory>
+        <useProjectArtifact>false</useProjectArtifact>
+        <useTransitiveDependencies>true</useTransitiveDependencies>
+        <scope>runtime</scope>
+        <includes>
+            <include>com.cisco.pnda:*</include>
+        </includes>
+      </dependencySet>
+    </dependencySets>
+</assembly>
