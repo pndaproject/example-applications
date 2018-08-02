@@ -1,0 +1,16 @@
+<workflow-app name="${component_application}-workflow" xmlns="uri:oozie:workflow:0.1">
+ <start to="ssh"/>
+ <action name="ssh">
+ <ssh xmlns="uri:oozie:ssh-action:0.1">
+ <host>${flink_client}</host>
+ <command>${path_to_script}</command>
+ <capture-output/>
+ </ssh>
+ <ok to="end"/>
+ <error to="kill"/>
+ </action>
+ <kill name="kill">
+ <message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+ </kill>
+ <end name="end"/>
+</workflow-app>
