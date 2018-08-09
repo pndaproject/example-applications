@@ -1,0 +1,9 @@
+{
+    "freq_in_mins":"20",
+    "start":"${deployment_start}",
+    "end":"${deployment_end}",
+    "job_type": "flink",
+    "main_py": "job.py",
+    "application_args": "- hdfs://localhost:8020/path/to/input hdfs://localhost:8020/path/to/output",
+    "flink_config_args": "-yn 1"
+}
