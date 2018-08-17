@@ -13,6 +13,9 @@ All notable changes to this project will be documented in this file.
 - PNDA-4502: Adds example flinks applications
 - PNDA-4545: Add example Java Flink batch application
 
+### Fixed
+- PNDA-4895: Modified topic name as defined in README
+
 ## [0.5.0] 2018-02-10
 ### Changed
 - PNDA-3555: Use /pnda/deployment as expected HDFS library location.
