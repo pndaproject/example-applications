@@ -27,7 +27,7 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 SCHEMA_PATH = HERE + "/dataplatform-raw.avsc"
 
 # Kafka topic
-TOPIC = "avro.kso.metrics"
+TOPIC = "avro.events.samples"
 CURRENT_TIME_MILLIS = lambda: int(round(time.time() * 1000))
 
 def run(brokers):
