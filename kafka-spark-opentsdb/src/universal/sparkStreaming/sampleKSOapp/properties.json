@@ -5,7 +5,7 @@
     "batch_size_seconds" : "2",
     "processing_parallelism" : "1",
     "checkpoint_path":"",
-    "input_topic": "avro.kso.metrics",
+    "input_topic": "avro.events.samples",
     "consume_from_beginning":"false",
     "spark_submit_args": ""    
 }
