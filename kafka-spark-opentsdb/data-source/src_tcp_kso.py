@@ -24,8 +24,8 @@ from time import gmtime, strftime
 import socket
 import random
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect(('127.0.0.1', 20519))
+SOCK = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+SOCK.connect(('127.0.0.1', 20519))
 
 while True:
     for i in range(0, 9):
@@ -34,7 +34,7 @@ while True:
                     str(collectd_value) + "','timestamp':'" + \
                     strftime("%Y-%m-%dT%H:%M:%S.000Z", gmtime()) + "'}\n"
 
-        sock.send(collectd_alea)
+        SOCK.send(collectd_alea)
         print collectd_alea
         time.sleep(1)
 
@@ -43,10 +43,8 @@ while True:
             str(collectd_value) + "','timestamp':'" + \
             strftime("%Y-%m-%dT%H:%M:%S.000Z", gmtime()) + "'}\n"
 
-        sock.send(collectd_alea)
+        SOCK.send(collectd_alea)
         print collectd_alea
         time.sleep(1)
 
     time.sleep(5)
-
-

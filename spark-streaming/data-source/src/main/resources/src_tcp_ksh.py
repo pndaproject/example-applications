@@ -22,16 +22,14 @@ Purpose: Example script to drive data compatible with example application over T
 import time
 import socket
 
-current_milli_time = lambda: int(round(time.time() * 1000))
+CURRENT_MILLI_TIME = lambda: int(round(time.time() * 1000))
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect(('127.0.0.1', 20518))
-seq = 0
+SOCK = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+SOCK.connect(('127.0.0.1', 20518))
+SEQ = 0
 
 while True:
-    payload = "a=1;b=2;c=%s;gen_ts=%s\n" % (seq, current_milli_time())
-    sock.send(payload)
+    PAYLOAD = "a=1;b=2;c=%s;gen_ts=%s\n" % (SEQ, CURRENT_MILLI_TIME())
+    SOCK.send(PAYLOAD)
     time.sleep(0.25)
-    seq += 1
-
-
+    SEQ += 1

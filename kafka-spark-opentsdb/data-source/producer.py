@@ -65,7 +65,7 @@ def run(brokers):
                       "rawdata": collectd_alea}, encoder)
         raw_bytes = bytes_writer.getvalue()
         # reset buffer to start index
-        bytes_writer.seek(0)            
+        bytes_writer.seek(0)
         producer.send(TOPIC, extrabytes + raw_bytes)
 
         time.sleep(1)
@@ -73,20 +73,19 @@ def run(brokers):
 
 if __name__ == '__main__':
 
-    broker_list = None
+    BROKER_LIST = None
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hb:", ["brokerlist="])
+        OPTS, ARGS = getopt.getopt(sys.argv[1:], "hb:", ["brokerlist="])
     except getopt.GetoptError:
         print 'producer.py [-b localhost:9092] '
         sys.exit(2)
-    for opt, arg in opts:
+    for opt, arg in OPTS:
         if opt == '-h':
             print 'producer.py [--brokerlist broker:port [,broker:port]]'
             sys.exit()
         elif opt in ("-b", "--brokerlist"):
             print "brokerlist: %s" % arg
-            broker_list = arg
+            BROKER_LIST = arg
 
-    run(broker_list if broker_list is not None else KAFKA_BROKERLIST)
-
+    run(BROKER_LIST if BROKER_LIST is not None else KAFKA_BROKERLIST)
