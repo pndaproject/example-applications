@@ -47,3 +47,9 @@ If the user does not provide any input file, it will automatically process examp
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
 
 `Note`: Oozie does not natively support an action for submitting Flink job on yarn-cluster.  PNDA deployment-manager creates a shell script to submit flink job. This shell script is run through Oozie SSH action, to submit the flink application.
+
+## Accessing Apache Flink Dashboard
+
+- `Running Jobs` : To view Flink Dashboard for running application, navigate to yarn UI, go to running flink job and click on it's Tracking UI for application master. It allows to access log files for running YARN applications and shows diagnostics for failed apps.
+
+- `Completed Jobs`: To query the status and statistics of completed jobs that have been archived by a JobManager navigate to the HistoryServer UI by clicking cog button of Flink component in PNDA Console.

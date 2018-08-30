@@ -47,5 +47,9 @@ Make sure to set `input_data_host` to the host that is running the `nc -l 9100` 
 
 Once the application is running, type some text into the nc input and view the results in the flink's taskmanager.out on driver host. To view this file navigate to the taskmanager log via the Yarn Resource Manager UI or use the PNDA log server.
 
+## Accessing Apache Flink Dashboard
 
+- `Running Jobs` : To view Flink Dashboard for running application, navigate to yarn UI, go to running flink job and click on it's Tracking UI for application master. It allows to access log files for running YARN applications and shows diagnostics for failed apps.
+
+- `Completed Jobs`: To query the status and statistics of completed jobs that have been archived by a JobManager navigate to the HistoryServer UI by clicking cog button of Flink component in PNDA Console.
 
