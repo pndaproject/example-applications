@@ -76,3 +76,9 @@ The PNDA console can be used to deploy the application package to a cluster and 
 To make the package available for deployment it must be uploaded to a package repository. The default implementation is an OpenStack Swift container. The package may be uploaded via the PNDA repository manager which abstracts the container used, or by manually uploading the package to the container.
 
 Once the application is running, the counter metric ( named sample-counter ) can be found in graphite and hence to the Grafana. Also, accumulator results can be observed in the logging metric while application is running and console output of the flink driver process after application ends.
+
+## Accessing Apache Flink Dashboard
+
+- `Running Jobs` : To view Flink Dashboard for running application, navigate to yarn UI, go to running flink job and click on it's Tracking UI for application master. It allows to access log files for running YARN applications and shows diagnostics for failed apps.
+
+- `Completed Jobs`: To query the status and statistics of completed jobs that have been archived by a JobManager navigate to the HistoryServer UI by clicking cog button of Flink component in PNDA Console.
